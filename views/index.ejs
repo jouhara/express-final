@@ -1,0 +1,52 @@
+<%- include('header'); -%>
+  <!--carousal-->
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active ">
+        <img src="/public/pic1.webp" class="d-block w-100" height="450px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/public/pic2.jpg" class="d-block w-100" height="450px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/public/pic3.jpg" class="d-block w-100" height="450px" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!--card section-->
+  <div class="container"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+    <div class="row p-5 g-2">
+      <% event.forEach(function(event){%>
+        <div class="col-xs-4 col-sm-1 col-md-3 col-lg-4 ">
+          
+            <div class="card" >
+                <img src=   
+              "event.image"
+                
+                class="card-img-top" height="200px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= event.name %></h5>
+                  <p class="card-text"><%= event.info %></p>
+                  <a href="/eventView/:<%= event.id %>" class="btn btn-primary">More details</a>
+                </div>
+              </div>
+        </div><% })%>
+        
+             </div> 
+</div>
+<!--footer-->
+<%- include('footer'); -%>
+

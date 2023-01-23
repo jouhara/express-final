@@ -1,0 +1,107 @@
+<%- include('header'); -%>
+<body>
+    <div class="container p-5">
+        
+        <table class="table table-hover">
+            <thead>
+                <h2>Event List</h2>
+                
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create new event
+                  </button>
+
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+                <th scope="col">Info</th>
+                <th scope="col">Type</th>
+                <th scope="col">Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% event.forEach(function(event){%>
+                    <tr>
+                        <th scope="row"></th>
+                        <td><%= event.id %></td>
+
+                        <td><%= event.name %></td>
+                        <td><%= event.price %></td>
+                        <td><%= event.type %></td>
+                        <td><%= event.info %></td>
+                        <td><%= event.image %></td>
+                        <td><%= event.date %></td>
+                        <th><a class="btn btn-primary" href="/eventView/:<%= event.id %>" >Edit</a></th>
+                        <th><button class="btn btn-danger" >Delete</button></th>              </tr>
+               <% })%>
+              
+              
+               
+            </tbody>
+          </table>
+    </div>
+
+    <!--model-->
+    
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/create" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Event name">
+                      <small id="emailHelp" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Date</label>
+                      <input type="text" name="date" class="form-control" id="exampleInputPassword1" placeholder="date">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">price</label>
+                      <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="date">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">info</label>
+                      <input type="text" name="info" class="form-control" id="exampleInputPassword1" placeholder="date">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">upload image</label>
+                      <input type="file" name="image" class="form-control" id="exampleInputPassword1" placeholder="date">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">type</label>
+                      <input type="text" name="type" class="form-control" id="exampleInputPassword1" placeholder="date">
+                    </div>
+
+                    
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+
+
+
+      
+
+<!--footer-->
+<%- include('footer'); -%>
